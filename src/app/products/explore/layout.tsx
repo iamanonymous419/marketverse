@@ -1,0 +1,14 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'MarketVerse - Explore Page',
+  description: 'MarketVerse is the best place to buy and sell products.',
+};
+
+export default function ExploreLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return <>{children}</>;
+}
