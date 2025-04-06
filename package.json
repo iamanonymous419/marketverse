@@ -13,7 +13,7 @@
     "typescript",
     "axios",
     "zod",
-    "yarn",
+    "pnpm",
     "vercel",
     "graphql",
     "apollo-client",
