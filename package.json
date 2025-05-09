@@ -1,0 +1,148 @@
+{
+  "name": "marketverse",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/app/layout.tsx",
+  "type": "module",
+  "description": "Marketverse is a platform that allows users to create and manage their own virtual marketplaces.",
+  "license": "MIT",
+  "config": {
+    "port": "3000"
+  },
+  "types": "index.d.ts",
+  "keywords": [
+    "react",
+    "tailwindcss",
+    "next",
+    "lucide-react",
+    "typescript",
+    "axios",
+    "zod",
+    "pnpm",
+    "vercel",
+    "graphql",
+    "apollo-client",
+    "cloudinary",
+    "nodemailer",
+    "node-cron",
+    "drizzle-orm",
+    "clsx",
+    "date-fns",
+    "typed.js",
+    "tailwind-merge",
+    "tailwindcss-animate",
+    "react-hook-form",
+    "docker",
+    "postgresql",
+    "docker-compose"
+  ],
+  "author": {
+    "name": "Anonymous",
+    "email": "anonymous292009@gmail.com",
+    "url": "https://github.com/iamanonymous419"
+  },
+  "repository": {
+    "type": "git",
+    "version": ">=2.43.0",
+    "url": "https://github.com/iamanonymous419/marketverse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iamanonymous419/marketverse/issues"
+  },
+  "homepage": "https://github.com/iamanonymous419/marketverse#readme",
+  "scripts": {
+    "format": "prettier --write .",
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.13.4",
+    "@apollo/server": "^4.11.3",
+    "@as-integrations/next": "^3.2.0",
+    "@clerk/nextjs": "^6.12.4",
+    "@graphql-tools/merge": "^9.0.24",
+    "@hookform/resolvers": "^3.10.0",
+    "@radix-ui/react-alert-dialog": "^1.1.6",
+    "@radix-ui/react-avatar": "^1.1.3",
+    "@radix-ui/react-checkbox": "^1.1.4",
+    "@radix-ui/react-dialog": "^1.1.6",
+    "@radix-ui/react-dropdown-menu": "^2.1.6",
+    "@radix-ui/react-label": "^2.1.2",
+    "@radix-ui/react-popover": "^1.1.6",
+    "@radix-ui/react-radio-group": "^1.2.3",
+    "@radix-ui/react-select": "^2.1.6",
+    "@radix-ui/react-separator": "^1.1.2",
+    "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-toast": "^1.2.6",
+    "@radix-ui/react-tooltip": "^1.1.8",
+    "@tanstack/react-query": "^5.67.2",
+    "@types/axios": "^0.14.4",
+    "@types/node-cron": "^3.0.11",
+    "@types/nodemailer": "^6.4.17",
+    "anoverse": "^1.0.0",
+    "axios": "^1.8.2",
+    "class-variance-authority": "^0.7.1",
+    "cloudinary": "^2.5.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.4.7",
+    "embla-carousel-react": "^8.5.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "graphql": "^16.10.0",
+    "graphql-tag": "^2.12.6",
+    "lucide-react": "^0.469.0",
+    "next": "15.1.3",
+    "next-themes": "^0.4.4",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.10.0",
+    "pg": "^8.13.3",
+    "react": "^19.0.0",
+    "react-day-picker": "8.10.1",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
+    "typed.js": "^2.1.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@types/node": "^20.17.24",
+    "@types/pg": "^8.11.11",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "drizzle-kit": "^0.30.5",
+    "drizzle-orm": "^0.40.0",
+    "eslint": "^9.22.0",
+    "eslint-config-next": "15.1.3",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error",
+      "version": ">=v18.19.1"
+    },
+    "packageManager": {
+      "name": "pnpm",
+      "onFail": "error",
+      "version": ">=10.4.1"
+    }
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "engines": {
+    "node": ">=v18.19.1",
+    "pnpm": ">=10.4.1"
+  }
+}
