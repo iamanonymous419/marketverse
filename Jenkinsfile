@@ -8,6 +8,7 @@ pipeline {
         NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = credentials('clerk-publishable-key') 
         EMAIL_RECIPIENT = 'your_email'
         // Store in Jenkins credentials
+        SONAR_HOME = tool "Sonar"
     }
     
     options {
@@ -46,6 +47,69 @@ pipeline {
                     } catch (Exception e) {
                         echo "Failed to set image tag: ${e.message}"
                         error "Failed to set image tag"
+                    }
+                }
+            }
+        }
+
+        stage('OWASP: Check') {
+            steps {
+                script {
+                    echo "Starting OWASP Dependency Check..."
+                    try {
+                        dependencyCheck additionalArguments: '--scan ./', odcInstallation: 'OWASP'
+                        echo "OWASP check completed successfully."
+                    } catch (Exception e) {
+                        echo "OWASP Dependency Check failed: ${e.message}"
+                        currentBuild.result = 'UNSTABLE'
+                    } finally {
+                        echo "Publishing OWASP Dependency Check Report..."
+                        dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+
+                        emailext(
+                            to: EMAIL_RECIPIENT,
+                            subject: "OWASP Scan Report for ${PROJECT_NAME}:${IMAGE_TAG}",
+                            body: "OWASP scan completed. Please review the attached report.",
+                            attachmentsPattern: '**/dependency-check-report.xml',
+                            mimeType: 'text/html'
+                        )
+                    }
+                }
+            }
+        }
+
+        stage("SonarQube: Code Analysis") {
+            steps {
+                script {
+                    try {
+                        withSonarQubeEnv("Sonar") {
+                            sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=${PROJECT_NAME} -Dsonar.projectKey=${PROJECT_NAME} -X"
+                        }
+                    } catch (err) {
+                        echo "SonarQube analysis failed: ${err}"
+                        currentBuild.result = 'FAILURE'
+                        error("Stopping pipeline due to SonarQube analysis failure.")
+                    } finally {
+                        echo "SonarQube analysis stage completed."
+                    }
+                }
+            }
+        }
+
+        // added sonarqube stages for code analysis and quality gates
+        stage("SonarQube: Code Quality Gates") {
+            steps {
+                script {
+                    try {
+                        timeout(time: 1, unit: 'MINUTES') {
+                            waitForQualityGate abortPipeline: false
+                        }
+                    } catch (err) {
+                        echo "Quality Gate check failed or timed out: ${err}"
+                        currentBuild.result = 'FAILURE'
+                        error("Stopping pipeline due to quality gate failure.")
+                    } finally {
+                        echo "Quality gate stage completed."
                     }
                 }
             }
