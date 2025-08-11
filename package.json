@@ -55,7 +55,14 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:drop": "drizzle-kit drop",
+    "db:pull": "drizzle-kit introspect",
+    "db:check": "drizzle-kit check"
   },
   "dependencies": {
     "@apollo/client": "^3.13.4",
@@ -129,20 +136,15 @@
       "name": "node",
       "onFail": "error",
       "version": ">=v18.19.1"
-    },
-    "packageManager": {
-      "name": "pnpm",
-      "onFail": "error",
-      "version": ">=10.4.1"
     }
   },
+  "packageManager": "pnpm@10.4.1",
   "os": [
     "darwin",
     "linux",
     "win32"
   ],
   "engines": {
-    "node": ">=v18.19.1",
-    "pnpm": ">=10.4.1"
+    "node": ">=v18.19.1"
   }
 }
