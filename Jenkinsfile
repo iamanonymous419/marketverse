@@ -4,9 +4,9 @@ pipeline {
     
     environment {
         PROJECT_NAME = 'marketverse'
-        DOCKER_HUB_REPO = 'your_username/marketverse'
+        DOCKER_HUB_REPO = 'anonymous292009/marketverse'
         NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = credentials('clerk-publishable-key') 
-        EMAIL_RECIPIENT = 'your_email'
+        EMAIL_RECIPIENT = 'anonymous292009@gmail.com'
         // Store in Jenkins credentials
         SONAR_HOME = tool "Sonar"
     }
